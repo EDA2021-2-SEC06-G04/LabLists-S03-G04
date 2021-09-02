@@ -54,7 +54,7 @@ def newCatalog():
     catalog['books'] = lt.newList()
     catalog['authors'] = lt.newList('SINGLE_LINKED',
                                     cmpfunction=compareauthors)
-    catalog['tags'] = lt.newList('ARRAY_LIST',
+    catalog['tags'] = lt.newList('SINGLE_LINKED',
                                  cmpfunction=comparetagnames)
     catalog['book_tags'] = lt.newList('SINGLE_LINKED')
 
@@ -148,6 +148,7 @@ def getBooksByAuthor(catalog, authorname):
         author = lt.getElement(catalog['authors'], posauthor)
         return author
     return None
+
 
 
 def getBestBooks(catalog, number):
